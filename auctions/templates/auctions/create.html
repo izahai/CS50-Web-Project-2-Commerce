@@ -1,0 +1,39 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h4 style="text-align:center;">Create Listing</h4>
+    
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <div class="col-lg-10 offset-lg-1">
+            <div class="form-group">
+                <labal for="titleInput">Title</labal>
+                <input id="titleInput" autofocus class="form-control" type="text" placeholder="Title">
+            </div>
+            <div class="textarea mb-3">
+                <label for="descriptionInput">Description</label>
+                <textarea id="descriptionInput" style="height: 150px" autofocus class="form-control" type="text" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Starting Bid">Starting Bid</label> 
+                <input id="Starting Bid" autofocus class="form-control" type="number" placeholder="Starting Bid">
+            </div>
+            <div class="form-group">
+                <label for="categorySelect">Category</label> 
+                <select class="form-control" id="categorySelect">
+                    <option selected disabled>Category...</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="imageURL">Image URL (optional)</label>
+                <input id="imageURL" autofocus class="form-control" type="url" placeholder="Image URL ">
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <input class="btn btn-primary" type="submit" value="Publish">
+            </div>
+        </div>
+    </form>
+{% endblock %}
